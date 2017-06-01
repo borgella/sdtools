@@ -2,11 +2,9 @@ import { Injectable } from '@angular/core';
 import { ISummary } from 'app/model/isummary';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class DocumentService {
-  private subject: Subject<ISummary>;
   private summaries: Array<ISummary>;
   private summaries2: Array<ISummary> = [ {_id: '1', name: 'Contract retreive Service', description: 'toto'},
     { _id: '2', name: 'client Service', description: 'tata' }, { _id: '3', name: 'Contract conversion Service', description: ' version' },

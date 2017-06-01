@@ -14,6 +14,7 @@ import { EndpointsComponent } from './endpoints/endpoints.component';
 import { SpecificationComponent } from './specification/specification.component';
 import { AppRoutingModule } from 'app/app.routing';
 import { DocumentService } from 'app/document.service';
+import { CommunicationService } from 'app/communication.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { DocumentService } from 'app/document.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [DocumentService],
+  providers: [DocumentService, CommunicationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
