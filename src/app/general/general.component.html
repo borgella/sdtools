@@ -1,0 +1,15 @@
+<div class="panel panel-primary">
+  <div *ngFor="let summarie of allSummaries; let i = index;" class="col-md-2 col-sm-3 col-xs-12">
+    <div class="panel-body">
+       <div class="row"> 
+        <div *ngIf="i < 6">
+          <p> {{ summarie.name }}</p>
+          <p> {{ summarie.description }}</p>
+          <button class="primary" (click)= "viewSingle(summarie._id)">View more </button>
+        </div>
+       </div>
+         
+    </div>
+  </div>
+
+</div>
