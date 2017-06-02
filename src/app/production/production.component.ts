@@ -1,28 +1,29 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ISummary } from 'app/model/isummary';
-import { Subscription } from 'rxjs/Subscription';
 import { CommunicationService } from 'app/communication.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-production',
+  templateUrl: './production.component.html',
+  styleUrls: ['./production.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class ProductionComponent implements OnInit, OnDestroy {
+
   private summary: ISummary;
-  private subscription: Subscription = new Subscription();
 
   constructor(private _communication: CommunicationService) { }
 
   ngOnInit() {
-    this.subscription = this._communication.subject.subscribe((data: ISummary) => {
+    this._communication.subject.subscribe((data: ISummary) => {
       this.summary = data;
       console.log(this.summary);
     });
   }
 
-
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    if (this.summary) {
+      this._communication.subject.unsubscribe();
+    }
   }
+
 }

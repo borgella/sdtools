@@ -1,0 +1,22 @@
+
+div.relative {
+    position: relative;
+}
+
+
+#infos{
+  height:120px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+hr{
+  font-weight: 4px;
+}
+
+.button{
+    margin: auto;
+}
+

@@ -1,15 +1,19 @@
-<div class="panel panel-primary">
-  <div *ngFor="let summarie of allSummaries; let i = index;" class="col-md-2 col-sm-3 col-xs-12">
-    <div class="panel-body">
-       <div class="row"> 
-        <div *ngIf="i < 6">
-          <p> {{ summarie.name }}</p>
-          <p> {{ summarie.description }}</p>
-          <button class="primary" (click)= "viewSingle(summarie._id)">View more </button>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div *ngFor="let summary of allSummaries; let i = index;" class="col-md-2 col-sm-4 col-xs-12">
+      <div *ngIf="i < 12">
+        <div class="row">
+          <div id="infos">
+            <div class="relative">
+              <p> {{ summary.name }}</p>
+              <p> {{ summary.description }}</p>
+            </div>
+          </div>
+          <div class="button">
+            <p><a [routerLink]="['/detail', summary._id]"> <button class="primary">View more </button></a></p>
+          </div>
         </div>
-       </div>
-         
+      </div>
     </div>
   </div>
-
 </div>

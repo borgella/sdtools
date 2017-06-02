@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ISummary } from 'app/model/isummary';
+import { ActivatedRoute, Params } from '@angular/router';
+import { DocumentService } from 'app/document.service';
 
 @Component({
   selector: 'app-detail',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  private summary: ISummary;
+
+  constructor(private route: ActivatedRoute, private docService: DocumentService) { }
 
   ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.summary = this.docService.singleSummary(params['id']);
+      console.log(this.summary);
+    });
   }
+
 
 }

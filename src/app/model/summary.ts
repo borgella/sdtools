@@ -6,10 +6,10 @@ export class Summary implements ISummary {
     name: string;
     description: string;
 
-    public constructor(_id: string, name: string, descrption: string) { 
-        this._id = _id;
-        this.name = name;
-        this.description = descrption;
+    public constructor() {
+        this._id = '';
+        this.name = '';
+        this.description = '';
     }
 
     public getId() { return this._id; }

@@ -7,21 +7,8 @@ import { ISummary } from 'app/model/isummary';
   templateUrl: './organisation.component.html',
   styleUrls: ['./organisation.component.css']
 })
-export class OrganisationComponent implements OnInit, OnDestroy {
+export class OrganisationComponent  {
 
-  private summary: ISummary;
-  private desactivate = true;
-
-  constructor(private _communication: CommunicationService) { }
-
-  ngOnInit() {
-    this._communication.subject.subscribe((data: ISummary) => {
-        this.summary = data;
-    });
-  }
-
-  ngOnDestroy(): void {
-      this._communication.subject.unsubscribe();
-    }
+  constructor() { }
 
 }

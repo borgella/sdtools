@@ -8,11 +8,11 @@ export class DocumentService {
   private summaries: Array<ISummary>;
   private summaries2: Array<ISummary> = [ {_id: '1', name: 'Contract retreive Service', description: 'toto'},
     { _id: '2', name: 'client Service', description: 'tata' }, { _id: '3', name: 'Contract conversion Service', description: ' version' },
-    { _id: '4', name: 'un autre Service', description: '' }, { _id: '5', name: 'Contract retreive Service', description: '' },
-    { _id: '2', name: 'Contract retreive Service', description: '' }, { _id: '7', name: 'Contract retreive Service', description: '' },
-    { _id: '8', name: 'Contract retreive Service', description: '' }, { _id: '9', name: 'Contract retreive Service', description: '' },
-    { _id: '10', name: 'Contract retreive Service', description: '' }, { _id: '11', name: 'Contract retreive Service', description: '' },
-    { _id: '12', name: 'Contract retreive Service', description: '' }, { _id: '13', name: 'Contract retreive Service', description: '' },
+    { _id: '4', name: 'un autre Service', description: 'tata' }, { _id: '5', name: 'Contract retreive Service', description: 'tata' },
+    { _id: '2', name: 'Contract retreive Service', description: 'tata' }, { _id: '7', name: 'Contract Service', description: 'tata' },
+    { _id: '8', name: 'Contract retreive Service', description: 'tata' }, { _id: '9', name: 'ccs rules Service', description: 'tata' },
+    { _id: '10', name: 'Contract Service', description: 'tata' }, { _id: '11', name: 'SAS Service', description: 'tata' },
+    { _id: '12', name: 'Contract Service', description: 'tata' }, { _id: '13', name: 'Contract retreive Service', description: 'tata' },
   ];
 
 

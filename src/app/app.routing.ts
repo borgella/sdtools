@@ -4,13 +4,15 @@ import { GeneralComponent } from 'app/general/general.component';
 import { EndpointsComponent } from 'app/endpoints/endpoints.component';
 import { SpecificationComponent } from 'app/specification/specification.component';
 import { DetailComponent } from 'app/detail/detail.component';
+import { ProductionComponent } from 'app/production/production.component';
 
 
 const routes: Routes = [
     { path: '', component: GeneralComponent},
+    { path: 'production', component: ProductionComponent},
     { path: 'endpoints', component: EndpointsComponent},
     { path: 'specification', component: SpecificationComponent},
-    { path: 'detail', component: DetailComponent}
+    { path: 'detail/:id', component: DetailComponent}
 ];
 
 @NgModule({
