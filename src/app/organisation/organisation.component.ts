@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommunicationService } from 'app/communication.service';
-import { ISummary } from 'app/model/isummary';
+import { ISummary } from 'app/model/summary/isummary';
 
 @Component({
   selector: 'app-organisation',

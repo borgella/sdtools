@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ISummary } from 'app/model/isummary';
+import { ISummary } from 'app/model/summary/isummary';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -19,9 +19,7 @@ export class DocumentService {
   constructor( private _http: Http) { }
 
   public getSummaries(): Array<ISummary> {
-
       return this.summaries2;
-
   }
 
   public singleSummary(id: string): ISummary {

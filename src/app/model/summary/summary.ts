@@ -1,5 +1,4 @@
-
-import { ISummary } from 'app/model/isummary';
+import { ISummary } from 'app/model/summary/isummary';
 
 export class Summary implements ISummary {
     _id: string;

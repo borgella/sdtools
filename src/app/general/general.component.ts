@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ISummary } from 'app/model/isummary';
+import { ISummary } from 'app/model/summary/isummary';
 import { DocumentService } from 'app/document.service';
 import { CommunicationService } from 'app/communication.service';
 import { Router } from '@angular/router';
@@ -20,7 +20,7 @@ export class GeneralComponent implements OnInit {
     this.allSummaries = this._documentService.getSummaries();
   }
 
-  public viewSingleSummary(id: string) {
+  public viewSingleSummary(id: string): void {
     this.summary = this._documentService.singleSummary(id);
     this._communication.subject.next(this.summary);
     this.router.navigate(['production']);

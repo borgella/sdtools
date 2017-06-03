@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ISummary } from 'app/model/isummary';
+import { ISummary } from 'app/model/summary/isummary';
 import { CommunicationService } from 'app/communication.service';
 
 @Component({

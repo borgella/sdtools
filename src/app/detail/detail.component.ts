@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ISummary } from 'app/model/isummary';
+import { ISummary } from 'app/model/summary/isummary';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DocumentService } from 'app/document.service';
 

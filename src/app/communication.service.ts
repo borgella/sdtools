@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { ISummary } from 'app/model/isummary';
+import { ISummary } from 'app/model/summary/isummary';
 import { Observable } from 'rxjs/Observable';
-import { Summary } from 'app/model/summary';
+import { Summary } from 'app/model/summary/summary';
 
 @Injectable()
 export class CommunicationService {
