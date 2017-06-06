@@ -3,20 +3,10 @@
     <h3 class="panel-title">Intact Organisations</h3>
   </div>
   <div class="panel-body">
-    <div class="well">
-      <p><a routerLink="/production">Production </a></p>
-    </div>
-    <div class="well">
-      <p><a routerLink="/detail">Conversion Project </a></p>
-    </div>
-    <div class="well">
-      <p><a routerLink="/detail">D16 </a></p>
-    </div>
-    <div class="well">
-      <p><a routerLink="/detail">D15 </a></p>
-    </div>
-    <div class="well">
-      <p><a routerLink="/detail">D14 </a></p>
+    <div *ngFor="let organisation of organisationsChild">
+      <div class="well">
+        <p><a [routerLink]="['/production', organisation._id]">{{ organisation.name }} </a></p>
+      </div>
     </div>
   </div>
 </div>

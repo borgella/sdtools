@@ -1,14 +1,21 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { CommunicationService } from 'app/communication.service';
 import { ISummary } from 'app/model/summary/isummary';
+import { IOrganisation } from 'app/model/organisation/iorganisation';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-organisation',
   templateUrl: './organisation.component.html',
   styleUrls: ['./organisation.component.css']
 })
-export class OrganisationComponent  {
+export class OrganisationComponent implements OnInit {
 
-  constructor() { }
+  @Input() private organisationsChild: Array<IOrganisation>;
 
+  public constructor(private route: ActivatedRoute) { }
+
+   public ngOnInit(): void {
+      //throw new Error('Method not implemented.');
+    }
 }
