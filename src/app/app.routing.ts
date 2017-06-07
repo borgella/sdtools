@@ -4,7 +4,7 @@ import { GeneralComponent } from 'app/dashboard/general/general.component';
 import { EndpointsComponent } from 'app/dashboard/endpoints/endpoints.component';
 import { SpecificationComponent } from 'app/dashboard/specification/specification.component';
 import { DetailComponent } from 'app/dashboard/detail/detail.component';
-import { OrganisationDetailComponent } from 'app/organisation/organisationDetail/organisation-detail.component';
+import { OrganisationDetailComponent } from 'app/dashboard/organisationDetail/organisation-detail.component';
 import { DashboardComponent } from 'app/dashboard/dashboard.component';
 
 

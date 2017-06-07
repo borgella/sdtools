@@ -15,7 +15,7 @@ import { SpecificationComponent } from './dashboard/specification/specification.
 import { AppRoutingModule } from 'app/app.routing';
 import { DocumentService } from 'app/document.service';
 import { CommunicationService } from 'app/communication.service';
-import { OrganisationDetailComponent } from './organisation/organisationDetail/organisation-detail.component';
+import { OrganisationDetailComponent } from './dashboard/organisationDetail/organisation-detail.component';
 
 @NgModule({
   declarations: [
