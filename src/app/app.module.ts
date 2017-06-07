@@ -15,7 +15,7 @@ import { SpecificationComponent } from './dashboard/specification/specification.
 import { AppRoutingModule } from 'app/app.routing';
 import { DocumentService } from 'app/document.service';
 import { CommunicationService } from 'app/communication.service';
-import { ProductionComponent } from './production/production.component';
+import { OrganisationDetailComponent } from './organisation/organisationDetail/organisation-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { ProductionComponent } from './production/production.component';
     GeneralComponent,
     EndpointsComponent,
     SpecificationComponent,
-    ProductionComponent
+    OrganisationDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -3,9 +3,9 @@
         <nav class=" navbar-default">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
-                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/"> General </a></li>
+                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['']"> General </a></li>
                     <li routerLinkActive="active"> <a [routerLink]="['endpoints']"> Endpoints </a></li>
-                    <li routerLinkActive="active"> <a [routerLink]="['specification']"> Specifications </a></li>
+                    <li routerLinkActive="active"> <a [routerLink]="['specifications']"> Specifications </a></li>
                 </ul>
             </div>
         </nav>

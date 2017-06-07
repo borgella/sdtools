@@ -7,10 +7,10 @@ import { IOrganisation } from 'app/model/organisation/iorganisation';
 
 @Component({
   selector: 'app-production',
-  templateUrl: './production.component.html',
-  styleUrls: ['./production.component.css']
+  templateUrl: './organisation-detail.component.html',
+  styleUrls: ['./organisation-detail.component.css']
 })
-export class ProductionComponent implements OnInit, OnDestroy {
+export class OrganisationDetailComponent implements OnInit, OnDestroy {
 
   private organisation: IOrganisation;
   private summary: ISummary;
