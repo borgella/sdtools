@@ -21,6 +21,9 @@ export class OrganisationDetailComponent implements OnInit, OnDestroy {
     this.route.params.subscribe((params: Params) => {
        this.organisation = this.docService.getOneOrganisation(params['id']);
     });
+    this._communication.subject.subscribe((idService: string) => {
+      console.log(`using the latest javascript string api ${idService}`);
+    });
   }
 
   ngOnDestroy(): void {

@@ -1,3 +1,74 @@
-<p >
-  {{ summary.name }}
-</p>
+<div *ngIf="document">
+      <div class="panel ">
+        <div class="panel-heading">
+          <p>Service Name : {{ document.serviceDoc.identity.name }} </p>
+        </div>
+        <div class="panel-body">
+          <div class="row content">
+            <div class="col-md-3">
+              <p>Identity:</p>
+              <p>Domain : {{ document.serviceDoc.identity.domain }} </p>
+              <p>subDomain : {{ document.serviceDoc.identity.subDomain }} </p>
+            </div>
+
+            <div class="col-md-3">
+              <p>Ownership:</p>
+              <p> Ownership : {{ document.serviceDoc.ownership.site }} </p>
+              <p> Team : {{ document.serviceDoc.ownership.team }} </p>
+            </div>
+
+            <div class="col-md-6">
+              <p>Ressource:</p>
+              <p>Ressource : {{ document.serviceDoc.scm.resourceScm.siteArea }} </p>
+              <p>GroupId : {{ document.serviceDoc.scm.resourceScm.groupId }} </p>
+              <p>ArtefactId : {{ document.serviceDoc.scm.resourceScm.artefactId }} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<!-- 
+  'serviceDoc': {
+      'identity': {
+        'name': 'Contract Repository Service',
+        'domain': 'plpolicy',
+        'subDomain': 'entity'
+      },
+      'ownership': {
+        'site': '2020',
+        'team': 'CE-Core'
+      },
+      'scm': {
+        'resourceScm': {
+          'siteArea': 'soa-resources-area',
+          'groupId': 'intact.soa-resources',
+          'artefactId': 'crs-resources'
+        },
+        'messageScm': {
+          'siteArea': 'soa-resources-area',
+          'groupId': 'intact.soa-resources',
+          'artefactId': 'crs-resources'
+        },
+        'serviceEndPointScm': {
+          'siteArea': 'soa-resources-area',
+          'groupId': 'intact.soa-resources',
+          'artefactId': 'crs-resources'
+        },
+        'serviceEarScm': {
+          'siteArea': 'soa-resources-area',
+          'groupId': 'intact.soa-resources',
+          'artefactId': 'crs-resources'
+        },
+        'serviceScm': {
+          'siteArea': 'soa-resources-area',
+          'groupId': 'intact.soa-resources',
+          'artefactId': 'crs-resources'
+        },
+        'consumerScm': {
+          'siteArea': 'soa-resources-area',
+          'groupId': 'intact.soa-resources',
+          'artefactId': 'crs-resources'
+        }
+      }
+-->
