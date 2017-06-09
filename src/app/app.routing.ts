@@ -15,9 +15,11 @@ const routes: Routes = [
         { path: 'endpoints', component: EndpointsComponent},
         { path: 'specifications', component: SpecificationComponent},
         { path: 'detail/:id', component: DetailComponent},
-        { path: 'organisation/:id', component: OrganisationDetailComponent}
+        { path: 'organisation/:id', component: OrganisationDetailComponent},
+        { path: 'organisation/:id/detail/:id', redirectTo: 'detail/:id'}
     ]},
-    { path: 'organisation/:id', redirectTo: 'dashboard', pathMatch: 'full'}
+    { path: 'organisation/:id', redirectTo: 'dashboard/organisation/:id', pathMatch: 'full'},
+    { path: 'prod/:id', redirectTo: 'dashboard/detail/:id', pathMatch: 'full'}
 ];
 
 @NgModule({

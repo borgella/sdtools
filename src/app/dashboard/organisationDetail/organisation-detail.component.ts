@@ -24,6 +24,7 @@ export class OrganisationDetailComponent implements OnInit, OnDestroy {
       this.docService.getDocumentsForAnOrganisation(params['id']);
       this.summaries = this.shareDoc.summaries;
     });
+    console.log(this.summaries);
   }
 
   ngOnDestroy(): void {

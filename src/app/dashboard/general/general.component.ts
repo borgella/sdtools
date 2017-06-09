@@ -18,6 +18,7 @@ export class GeneralComponent implements OnInit {
   constructor(private _documentService: DocumentService, private shareDoc: DocumentsharedService) { }
 
   public ngOnInit(): void {
+    this._documentService.getSummaries();
     this.summaries = this.shareDoc.summaries;
   }
 

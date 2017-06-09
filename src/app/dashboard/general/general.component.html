@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <div *ngFor="let summary of summaries; let i = index;" class="col-md-2 col-sm-4 col-xs-12">
+    <div *ngFor="let summary of summaries; let i = index;" class="col-sm-4 col-xs-12">
         <div class="row">
           <div id="infos">
             <div class="relative">
@@ -12,6 +12,8 @@
             <p><a [routerLink]="['detail', summary._id]"> <button class="primary">View more </button></a></p>
           </div>
         </div>
+        <br>
+        <hr>
     </div>
   </div>
 </div>
