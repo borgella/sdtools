@@ -5,6 +5,7 @@ import { DocumentService } from 'app/document.service';
 import { CommunicationService } from 'app/communication.service';
 import { Summary } from 'app/model/summary/summary';
 import { IserviceDoc } from 'app/model/documentation/iservicedoc';
+import { DocumentsharedService } from 'app/dashboard/documentshared.service';
 
 @Component({
   selector: 'app-detail',
@@ -16,13 +17,13 @@ export class DetailComponent implements OnInit {
   private document: IserviceDoc;
   private summary: ISummary = new Summary();
 
-  constructor(private route: ActivatedRoute, private docService: DocumentService, private communicate: CommunicationService) { }
+  constructor(private route: ActivatedRoute, private docService: DocumentService, private shared: DocumentsharedService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.document = this.docService.getDocument(params['id']);
+      this.shared.document = this.document;
       console.log(this.document);
-      this.communicate.subject.next(params['id']);
     });
   }
 

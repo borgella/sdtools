@@ -15,6 +15,7 @@ import { SpecificationComponent } from './dashboard/specification/specification.
 import { AppRoutingModule } from 'app/app.routing';
 import { DocumentService } from 'app/document.service';
 import { CommunicationService } from 'app/communication.service';
+import { DocumentsharedService } from 'app/dashboard/documentshared.service';
 import { OrganisationDetailComponent } from './dashboard/organisationDetail/organisation-detail.component';
 
 @NgModule({
@@ -36,7 +37,7 @@ import { OrganisationDetailComponent } from './dashboard/organisationDetail/orga
     HttpModule,
     AppRoutingModule
   ],
-  providers: [DocumentService, CommunicationService],
+  providers: [DocumentService, CommunicationService, DocumentsharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

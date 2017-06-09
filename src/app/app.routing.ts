@@ -17,13 +17,11 @@ const routes: Routes = [
         { path: 'detail/:id', component: DetailComponent},
         { path: 'organisation/:id', component: OrganisationDetailComponent}
     ]},
-    { path: 'organisation/:id', redirectTo: 'dashboard/organisation/:id', pathMatch: 'full'}
+    { path: 'organisation/:id', redirectTo: 'dashboard', pathMatch: 'full'}
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {  }

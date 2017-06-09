@@ -4,6 +4,7 @@ import { CommunicationService } from 'app/communication.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DocumentService } from 'app/document.service';
 import { IOrganisation } from 'app/model/organisation/iorganisation';
+import { DocumentsharedService } from 'app/dashboard/documentshared.service';
 
 @Component({
   selector: 'app-production',
@@ -12,17 +13,16 @@ import { IOrganisation } from 'app/model/organisation/iorganisation';
 })
 export class OrganisationDetailComponent implements OnInit, OnDestroy {
 
-  private organisation: IOrganisation;
+  private summaries: Array<ISummary>;
   private summary: ISummary;
 
-  constructor(private route: ActivatedRoute, private docService: DocumentService, private _communication: CommunicationService) { }
+  constructor(private route: ActivatedRoute, private docService: DocumentService,
+    private shareDoc: DocumentsharedService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-       this.organisation = this.docService.getOneOrganisation(params['id']);
-    });
-    this._communication.subject.subscribe((idService: string) => {
-      console.log(`using the latest javascript string api ${idService}`);
+      this.docService.getDocumentsForAnOrganisation(params['id']);
+      this.summaries = this.shareDoc.summaries;
     });
   }
 

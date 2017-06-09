@@ -1,3 +1,17 @@
-<p>
-  specification works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div *ngFor="let specification of specifications; let i = index;" class="col-sm-4 col-xs-12">
+        <div class="row">
+          <div id="infos">
+            <div class="relative">
+              <p> Id: {{ specification.id }} </p>
+              <p> EndpointId: {{ specification.endpointId }} </p>
+              <p> Context: {{ specification.context }} </p>
+              <p> Creation Date: {{ specification.dateCreation.toLocaleDateString() }} </p>
+              <p> Modification Date: {{ specification.dateCreation.toLocaleDateString()}} </p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

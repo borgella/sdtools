@@ -4,28 +4,31 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { IserviceDoc } from 'app/model/documentation/iservicedoc';
 import { IOrganisation } from 'app/model/organisation/iorganisation';
+import { DocumentsharedService } from 'app/dashboard/documentshared.service';
 
 @Injectable()
 export class DocumentService {
   private summaries2: Array<ISummary> = [
-      { _id: '5923957742481a1cf8dd9b50',
-        name: 'Contract retreive Service',
-        description: 'toto',
-        isProd: true,
-        isD16: true,
-        isD14: true, isOther: true },
-      { _id: '2', name: 'client Service', description: 'tata', isProd: true, isD16: false, isD14: true, isOther: false},
-      { _id: '3', name: 'Contract conversion Service', description: ' version', isProd: true, isD16: true, isOther: true },
-      { _id: '4', name: 'un autre Service', description: 'tata', isProd: true, isD16: false, isD14: true, isOther: true },
-      { _id: '5', name: 'Contract retreive Service', description: 'tata', isProd: true, isD16: false },
-      { _id: '2', name: 'Contract retreive Service', description: 'tata', isProd: true, isD16: false },
-      { _id: '7', name: 'Contract Service', description: 'tata', isProd: false, isD16: false},
-      { _id: '8', name: 'Contract retreive Service', description: 'tata', isProd: false, isD16: false },
-      { _id: '9', name: 'ccs rules Service', description: 'tata', isProd: true, isD16: false },
-      { _id: '10', name: 'Contract Service', description: 'tata', isProd: true, isD16: false },
-      { _id: '11', name: 'SAS Service', description: 'tata', isProd: false, isD16: false },
-      { _id: '12', name: 'Contract Service', description: 'tata', isProd: true, isD16: false },
-      { _id: '13', name: 'Contract retreive Service', description: 'tata', isProd: false, isD16: false }
+    {
+      _id: '5923957742481a1cf8dd9b50',
+      name: 'Contract retreive Service',
+      description: 'toto',
+      isProd: true,
+      isD16: true,
+      isD14: true, isOther: true
+    },
+    { _id: '2', name: 'client Service', description: 'tata', isProd: true, isD16: false, isD14: true, isOther: false },
+    { _id: '3', name: 'Contract conversion Service', description: ' version', isProd: true, isD16: true, isOther: true },
+    { _id: '4', name: 'un autre Service', description: 'tata', isProd: true, isD16: false, isD14: true, isOther: true },
+    { _id: '5', name: 'Contract retreive Service', description: 'tata', isProd: true, isD16: false },
+    { _id: '2', name: 'Contract retreive Service', description: 'tata', isProd: false, isD16: false },
+    { _id: '7', name: 'Contract Service', description: 'tata', isProd: false, isD16: false },
+    { _id: '8', name: 'Contract retreive Service', description: 'tata', isProd: false, isD16: false },
+    { _id: '9', name: 'ccs rules Service', description: 'tata', isProd: false, isD16: false },
+    { _id: '10', name: 'Contract Service', description: 'tata', isProd: false, isD16: false },
+    { _id: '11', name: 'SAS Service', description: 'tata', isProd: false, isD16: false },
+    { _id: '12', name: 'Contract Service', description: 'tata', isProd: true, isD16: false },
+    { _id: '13', name: 'Contract retreive Service', description: 'tata', isProd: false, isD16: false }
   ];
 
   private organisations: Array<IOrganisation> = [
@@ -34,7 +37,7 @@ export class DocumentService {
       'name': 'PRODUCTION',
       'servicesId': ['5923957742481a1cf8dd9b50'],
       'dateBegin': '2017-05-23T01:50:47.640Z',
-      'dateEnd': '2018-05-23T01:50:47.640Z' 
+      'dateEnd': '2018-05-23T01:50:47.640Z'
     },
     {
       '_id': '2',
@@ -45,7 +48,7 @@ export class DocumentService {
     },
     {
       '_id': '3',
-      'name': 'CONTACT_D14',
+      'name': 'CONTACT_D15',
       'servicesId': [],
       'dateBegin': '2017-05-23T01:50:47.640Z',
       'dateEnd': '2018-05-23T01:50:47.640Z'
@@ -53,6 +56,26 @@ export class DocumentService {
     {
       '_id': '4',
       'name': 'Production DOM 6.5',
+      'servicesId': [],
+      'dateBegin': '2017-05-25T19:04:26.538Z',
+      'dateEnd': null
+    },
+    {
+      '_id': '4',
+      'name': 'INTG',
+      'servicesId': [],
+      'dateBegin': '2017-05-25T19:04:26.538Z',
+      'dateEnd': null
+    },{
+      '_id': '4',
+      'name': 'DEV',
+      'servicesId': [],
+      'dateBegin': '2017-05-25T19:04:26.538Z',
+      'dateEnd': null
+    },
+    {
+      '_id': '4',
+      'name': 'UAT',
       'servicesId': [],
       'dateBegin': '2017-05-25T19:04:26.538Z',
       'dateEnd': null
@@ -202,8 +225,8 @@ export class DocumentService {
               'endpointId': 'retrieve-contract',
               'context': 'By default',
               'text': 'By default, all requests are handled by searching in Contact PL Database.',
-              'dateCreation': null,
-              'dateLastModification': null
+              'dateCreation': new Date(1995, 11, 17),
+              'dateLastModification': new Date(2016, 12, 21),
             },
             {
               'id': 'rule retrieve-contract #2',
@@ -211,7 +234,7 @@ export class DocumentService {
               'context': 'For Requestor CLAR',
               // tslint:disable-next-line:max-line-length
               'text': 'For criteria of type IRetrieveClassicContractCriteria and Requestor = CLAR, the code is handled by LegacyRetrieveClassicContractEndpointHandler.',
-              'dateCreation': null,
+              'dateCreation': new Date(),
               'dateLastModification': null
             },
             {
@@ -220,7 +243,7 @@ export class DocumentService {
               'context': 'For Requestor CLAR',
               // tslint:disable-next-line:max-line-length
               'text': 'For criteria of type IRetrieveClassicContractCriteria and Requestor = CLAR, the code is handled by LegacyRetrieveClassicContractEndpointHandler.',
-              'dateCreation': null,
+              'dateCreation': new Date(2014, 3, 17),
               'dateLastModification': null
             },
             {
@@ -229,13 +252,13 @@ export class DocumentService {
               'context': 'For all Requestor except CLAR',
               // tslint:disable-next-line:max-line-length
               'text': 'For criteria of type IRetrieveClassicContractCriteria and other requestors than CLAR, the code is handled by RetrieveClassicContractEndpointHandler.',
-              'dateCreation': null,
+              'dateCreation': new Date(2012, 11, 17),
               'dateLastModification': null
             }
           ],
           'usesDependencies': [],
           'usedByDependencies': [],
-          'dateCreation': null,
+          'dateCreation': new Date(2015, 11, 17),
           'dateLastModification': null
         }
       ],
@@ -391,7 +414,7 @@ export class DocumentService {
   }];
 
 
-  public constructor(private _http: Http) { }
+  public constructor(private _http: Http, private shareDoc: DocumentsharedService) { }
 
   public getDocument(idDoc: string): IserviceDoc {
     const temp = this.documents.filter((document: IserviceDoc) => {
@@ -400,11 +423,13 @@ export class DocumentService {
       }
     });
     if (temp) {
-        return temp[0];
-      }
+      this.shareDoc.subjectDocument.next(temp[0]);
+      return temp[0];
+    }
   }
 
   public getSummaries(): Array<ISummary> {
+    this.shareDoc.subjectSummaries.next(this.summaries2);
     return this.summaries2;
   }
 
@@ -434,5 +459,23 @@ export class DocumentService {
     }
   }
 
+  public getDocumentsForAnOrganisation(id: string) {
+    const is = id === '1';
+    if (is) {
+        this.shareDoc.subjectSummaries.next(this.getPrductionsSummaries());
+    }
+
+  }
+
+  public getPrductionsSummaries(): Array<ISummary>  {
+    const temp = this.summaries2.filter((summary: ISummary) => {
+      if (summary.isProd) {
+        return summary;
+      }
+    });
+    if (temp) {
+      return temp;
+    }
+  }
 
 }

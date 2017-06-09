@@ -5,7 +5,7 @@
   <div class="panel-body">
     <div *ngFor="let organisation of organisationsChild">
       <div class="well">
-        <p><a [routerLink]="['organisation', organisation._id]">{{ organisation.name }} </a></p>
+       <a routerLinkActive=".active" [routerLink]="['organisation', organisation._id]">{{ organisation.name }} </a>
       </div>
     </div>
   </div>

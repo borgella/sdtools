@@ -18,13 +18,8 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private documentService: DocumentService, private _communication: CommunicationService) { }
 
   ngOnInit() {
-    this.subscription = this._communication.subject.subscribe((data: ISummary) => {
-      this.summary = data;
-      console.log(this.summary);
-    });
-
+    this.documentService.getSummaries();
     this.organisations = this.documentService.getAllOrganisations();
-
   }
 
 

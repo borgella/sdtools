@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DocumentService } from 'app/document.service';
+import { DocumentsharedService } from 'app/dashboard/documentshared.service';
+import { ISummary } from 'app/model/summary/isummary';
+import { IserviceDoc } from 'app/model/documentation/iservicedoc';
 
 @Component({
   selector: 'app-endpoints',
@@ -6,10 +10,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./endpoints.component.css']
 })
 export class EndpointsComponent implements OnInit {
-  private endpoint = 'Endpoints quelque chose';
-  constructor() { }
+  private endpoints: Array<any>;
+  private mapProductionVersions: Array<any> = new Array();
 
-  ngOnInit() {
+  constructor(private docService: DocumentService, private shared: DocumentsharedService) { }
+
+  public ngOnInit(): void {
+    if (this.shared.document) {
+          this.mapProductionVersions = this.shared.document.serviceDoc.mapProductionVersions;
+          this.endpoints = this.mapProductionVersions[0].endpoints;
+          console.log(this.endpoints);
+    }
   }
 
 }
