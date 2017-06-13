@@ -4,7 +4,6 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { IserviceDoc } from 'app/model/documentation/iservicedoc';
 import { IOrganisation } from 'app/model/organisation/iorganisation';
-import { DocumentsharedService } from 'app/dashboard/documentshared.service';
 
 @Injectable()
 export class DocumentService {
@@ -414,7 +413,12 @@ export class DocumentService {
   }];
 
 
-  public constructor(private _http: Http, private shareDoc: DocumentsharedService) { }
+  public constructor(private _http: Http) { /*, private shareDoc: DocumentsharedService*/ }
+
+  public getSummaries(): Array<ISummary> {
+    //this.shareDoc.subjectSummaries.next(this.summaries2);
+    return this.summaries2;
+  }
 
   public getDocument(idDoc: string): IserviceDoc {
     const temp = this.documents.filter((document: IserviceDoc) => {
@@ -423,17 +427,12 @@ export class DocumentService {
       }
     });
     if (temp) {
-      this.shareDoc.subjectDocument.next(temp[0]);
+      //this.shareDoc.subjectDocument.next(temp[0]);
       return temp[0];
     }
   }
 
-  public getSummaries(): Array<ISummary> {
-    this.shareDoc.subjectSummaries.next(this.summaries2);
-    return this.summaries2;
-  }
-
-  public singleSummary(id: string): ISummary {
+  public getSingleSummary(id: string): ISummary {
     const temp = this.summaries2.filter(function (obj: ISummary) {
       if (obj._id === id) {
         return obj;
@@ -459,12 +458,14 @@ export class DocumentService {
     }
   }
 
-  public getDocumentsForAnOrganisation(id: string) {
+  public getDocumentsForAnOrganisation(id: string): Array<ISummary> {
     const is = id === '1';
     if (is) {
-      this.shareDoc.subjectSummaries.next(this.getPrductionsSummaries());
+      return this.getPrductionsSummaries();
+      //this.shareDoc.subjectSummaries.next(this.getPrductionsSummaries());
     } else {
-      this.shareDoc.subjectSummaries.next(this.getOtherOrganisationSummaries());
+      return this.getOtherOrganisationSummaries();
+      //this.shareDoc.subjectSummaries.next(this.getOtherOrganisationSummaries());
     }
 
   }

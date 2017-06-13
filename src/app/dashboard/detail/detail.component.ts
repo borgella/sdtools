@@ -15,14 +15,13 @@ import { DocumentsharedService } from 'app/dashboard/documentshared.service';
 export class DetailComponent implements OnInit {
 
   private document: IserviceDoc;
-  private summary: ISummary = new Summary();
 
-  constructor(private route: ActivatedRoute, private docService: DocumentService, private shared: DocumentsharedService) { }
+  constructor(private route: ActivatedRoute, private shareDoc: DocumentsharedService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.document = this.docService.getDocument(params['id']);
-      this.shared.document = this.document;
+      this.shareDoc.getDocument(params['id']);
+      this.document = this.shareDoc.document;
       console.log(this.document);
     });
   }

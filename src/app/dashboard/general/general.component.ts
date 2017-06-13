@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ISummary } from 'app/model/summary/isummary';
-import { DocumentService } from 'app/document.service';
 import { CommunicationService } from 'app/communication.service';
 import { Router } from '@angular/router';
 import { DocumentsharedService } from 'app/dashboard/documentshared.service';
@@ -15,15 +14,17 @@ export class GeneralComponent implements OnInit {
   private summaries: Array<ISummary>;
   private summary: ISummary;
 
-  constructor(private _documentService: DocumentService, private shareDoc: DocumentsharedService) { }
+  constructor(private shareDoc: DocumentsharedService) { }
 
   public ngOnInit(): void {
-    this._documentService.getSummaries();
+    this.shareDoc.getSummaries();
     this.summaries = this.shareDoc.summaries;
+    console.log(this.summaries);
   }
 
   public viewSingleSummary(id: string): void {
-    this.summary = this._documentService.singleSummary(id);
+    this.summary = this.shareDoc.summary;
+    console.log(this.summary);
   }
 
 }

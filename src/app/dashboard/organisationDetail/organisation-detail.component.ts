@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ISummary } from 'app/model/summary/isummary';
 import { CommunicationService } from 'app/communication.service';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -11,24 +11,20 @@ import { DocumentsharedService } from 'app/dashboard/documentshared.service';
   templateUrl: './organisation-detail.component.html',
   styleUrls: ['./organisation-detail.component.css']
 })
-export class OrganisationDetailComponent implements OnInit, OnDestroy {
+export class OrganisationDetailComponent implements OnInit {
 
   private summaries: Array<ISummary>;
   private summary: ISummary;
 
-  constructor(private route: ActivatedRoute, private docService: DocumentService,
-    private shareDoc: DocumentsharedService) { }
+  constructor(private route: ActivatedRoute, private shareDoc: DocumentsharedService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.docService.getDocumentsForAnOrganisation(params['id']);
+      this.shareDoc.getDocumentsForAnOrganisation(params['id']);
       this.summaries = this.shareDoc.summaries;
+      console.log(this.summaries);
     });
-    console.log(this.summaries);
   }
 
-  ngOnDestroy(): void {
-
-  }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DocumentsharedService } from 'app/dashboard/documentshared.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private shareDoc: DocumentsharedService) { }
 
-  public ngOnInit(): void { }
+  public ngOnInit(): void {
+    this.shareDoc.getSummaries();
+  }
 
 
 }

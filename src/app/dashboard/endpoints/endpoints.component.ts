@@ -10,16 +10,18 @@ import { IserviceDoc } from 'app/model/documentation/iservicedoc';
   styleUrls: ['./endpoints.component.css']
 })
 export class EndpointsComponent implements OnInit {
+  private document: IserviceDoc;
   private endpoints: Array<any>;
   private mapProductionVersions: Array<any> = new Array();
 
-  constructor(private docService: DocumentService, private shared: DocumentsharedService) { }
+  constructor(private shared: DocumentsharedService) { }
 
   public ngOnInit(): void {
     if (this.shared.document) {
-          this.mapProductionVersions = this.shared.document.serviceDoc.mapProductionVersions;
-          this.endpoints = this.mapProductionVersions[0].endpoints;
-          console.log(this.endpoints);
+      this.document = this.shared.document;
+      this.mapProductionVersions = this.document.serviceDoc.mapProductionVersions;
+      this.endpoints = this.mapProductionVersions[0].endpoints;
+      console.log(this.endpoints);
     }
   }
 
