@@ -15,7 +15,7 @@ export class OrganisationComponent implements OnInit {
 
   public constructor(private route: ActivatedRoute) { }
 
-   public ngOnInit(): void {
-      //throw new Error('Method not implemented.');
-    }
+  public ngOnInit(): void {
+
+  }
 }
