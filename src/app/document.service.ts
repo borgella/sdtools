@@ -7,9 +7,11 @@ import { IOrganisation } from 'app/model/organisation/iorganisation';
 import { Summaries } from 'app/mock/summaries';
 import { Organisations } from 'app/mock/organisations';
 import { Documents } from 'app/mock/documents';
+import { IServiceDocumentation } from 'app/model/service/iservicedoc';
+import { Observer } from 'rxjs/Observer';
 
 @Injectable()
-export class DocumentService {
+export class DocumentService implements IServiceDocumentation {
 
   private summaries2: Array<ISummary> = Summaries;
   private organisations: Array<IOrganisation> = Organisations;
@@ -18,34 +20,55 @@ export class DocumentService {
 
   public constructor(private _http: Http) { }
 
-  public getSummaries(): Array<ISummary> {
-    return this.summaries2;
+  public getSummaries(): Observable<Array<ISummary>> {
+    return Observable.create((observer: Observer<Array<ISummary>>) => {
+      observer.next(this.summaries2);
+    });
   }
 
-  public getDocument(idDoc: string): IserviceDoc {
+  public getDocument(idDoc: string): Observable<IserviceDoc> {
     const temp = this.documents.filter((document: IserviceDoc) => {
       if (document._id === idDoc) {
         return document;
       }
     });
     if (temp) {
-      return temp[0];
+      return Observable.create((observer: Observer<IserviceDoc>) => {
+        observer.next(temp[0]);
+      });
     }
   }
 
-  public getSingleSummary(id: string): ISummary {
+  public getSingleSummary(id: string): Observable<ISummary> {
     const temp = this.summaries2.filter(function (obj: ISummary) {
       if (obj._id === id) {
         return obj;
       }
     });
     if (temp.length > 0) {
-      return temp[0];
+      return Observable.create((observer: Observer<ISummary>) => {
+        observer.next(temp[0]);
+      });
     }
   }
 
-  public getAllOrganisations(): Array<IOrganisation> {
-    return this.organisations;
+  public getAllOrganisations(): Observable<Array<IOrganisation>> {
+    return Observable.create((observer: Observer<Array<IOrganisation>>) => {
+      observer.next(this.organisations);
+    });
+  }
+
+  public getSummariesForAnOrganisation(id: string): Observable<Array<ISummary>> {
+    const is = id === '1';
+    if (is) {
+      return Observable.create((observer: Observer<Array<ISummary>>) => {
+        observer.next(this.getPrductionsSummaries());
+      });
+    } else {
+      return Observable.create((observer: Observer<Array<ISummary>>) => {
+        observer.next(this.getOtherOrganisationSummaries());
+      });
+    }
   }
 
   public getOneOrganisation(id: string): IOrganisation {
@@ -59,16 +82,7 @@ export class DocumentService {
     }
   }
 
-  public getSummariesForAnOrganisation(id: string): Array<ISummary> {
-    const is = id === '1';
-    if (is) {
-      return this.getPrductionsSummaries();
-    } else {
-      return this.getOtherOrganisationSummaries();
-    }
-  }
-
-  public getPrductionsSummaries(): Array<ISummary> {
+  private getPrductionsSummaries(): Array<ISummary> {
     const temp = this.summaries2.filter((summary: ISummary) => {
       if (summary.isProd) {
         return summary;
@@ -79,7 +93,7 @@ export class DocumentService {
     }
   }
 
-  public getOtherOrganisationSummaries(): Array<ISummary> {
+  private getOtherOrganisationSummaries(): Array<ISummary> {
     const temp = this.summaries2.filter((summary: ISummary) => {
       if (!summary.isProd) {
         return summary;

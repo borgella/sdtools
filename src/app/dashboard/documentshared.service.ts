@@ -6,9 +6,10 @@ import { IserviceDoc } from 'app/model/documentation/iservicedoc';
 import { IOrganisation } from 'app/model/organisation/iorganisation';
 import { DocumentService } from 'app/document.service';
 import { Observable } from 'rxjs/Observable';
+import { IServiceDocumentation } from 'app/model/service/iservicedoc';
 
 @Injectable()
-export class DocumentsharedService {
+export class DocumentsharedService implements IServiceDocumentation {
 
   public subjectDocument: Subject<IserviceDoc> = new Subject();
   public subjectSummaries: Subject<Array<ISummary>> = new Subject();
@@ -25,28 +26,38 @@ export class DocumentsharedService {
   constructor(private documentSer: DocumentService) { }
 
   public getDocument(idDoc: string): void {
-    this.document = this.documentSer.getDocument(idDoc);
-    this.subjectDocument.next(this.document);
+    this.documentSer.getDocument(idDoc).subscribe((document: IserviceDoc) => {
+      this.document = document;
+      this.subjectDocument.next(this.document);
+    });
   }
 
   public getSummaries(): void {
-    this.summaries = this.documentSer.getSummaries();
-    this.subjectSummaries.next(this.summaries);
+    this.documentSer.getSummaries().subscribe((summaries: Array<ISummary>) => {
+      this.summaries = summaries;
+      this.subjectSummaries.next(this.summaries);
+    });
   }
 
   public getSingleSummary(id: string): void {
-    this.summary = this.documentSer.getSingleSummary(id);
-    this.subjectSummary.next(this.summary);
+    this.documentSer.getSingleSummary(id).subscribe((summary: ISummary) => {
+      this.summary = summary;
+      this.subjectSummary.next(this.summary);
+    });
   }
 
   public getAllOrganisations(): void {
-    this.organisations = this.documentSer.getAllOrganisations();
-    this.subjectOrganisations.next(this.organisations);
+     this.documentSer.getAllOrganisations().subscribe((organisations: Array<IOrganisation>) => {
+       this.organisations = organisations;
+       this.subjectOrganisations.next(this.organisations);
+     });
   }
 
-  public getDocumentsForAnOrganisation(id: string): void {
-    this.summaries = this.documentSer.getSummariesForAnOrganisation(id);
-    this.subjectSummaries.next(this.summaries);
+  public getSummariesForAnOrganisation(id: string): void {
+    this.documentSer.getSummariesForAnOrganisation(id).subscribe((summaries: Array<ISummary>) => {
+      this.summaries = summaries;
+      this.subjectSummaries.next(this.summaries);
+    });
   }
 
 }

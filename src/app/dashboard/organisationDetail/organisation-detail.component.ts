@@ -22,7 +22,7 @@ export class OrganisationDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.route.paramMap.switchMap(
       (params: Params) => {
-        this.shareDoc.getDocumentsForAnOrganisation(params.get('id'));
+        this.shareDoc.getSummariesForAnOrganisation(params.get('id'));
         this.summaries = this.shareDoc.summaries;
         return this.shareDoc.subjectSummaries.takeWhile(() => this.isAlive);
       }
