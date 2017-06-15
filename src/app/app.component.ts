@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { DocumentService } from 'app/document.service';
 import { IOrganisation } from 'app/model/organisation/iorganisation';
 import { DocumentsharedService } from 'app/dashboard/documentshared.service';
 import 'rxjs/add/operator/takeWhile';
@@ -13,7 +12,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private organisations: Array<IOrganisation>;
   private isAlive = true;
 
-  constructor(private documentService: DocumentService, private shareDoc: DocumentsharedService) { }
+  constructor(private shareDoc: DocumentsharedService) { }
 
   public ngOnInit(): void {
     this.shareDoc.getAllOrganisations();

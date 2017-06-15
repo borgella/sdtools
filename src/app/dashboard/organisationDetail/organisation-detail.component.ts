@@ -20,7 +20,24 @@ export class OrganisationDetailComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private shareDoc: DocumentsharedService) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => { // to be refactored using flatmap
+    this.route.paramMap.switchMap(
+      (params: Params) => {
+        this.shareDoc.getDocumentsForAnOrganisation(params.get('id'));
+        this.summaries = this.shareDoc.summaries;
+        return this.shareDoc.subjectSummaries.takeWhile(() => this.isAlive);
+      }
+    ).subscribe((summaries: Array<ISummary>) => {
+      this.summaries = summaries;
+    });
+  }
+
+  public ngOnDestroy(): void {
+    this.isAlive = false;
+    console.log(this.summaries);
+  }
+
+  /**
+   * this.route.params.subscribe((params: Params) => { // to be refactored using flatmap
       this.shareDoc.getDocumentsForAnOrganisation(params['id']);
       this.summaries = this.shareDoc.summaries;
       this.shareDoc.subjectSummaries.takeWhile(() => this.isAlive)
@@ -29,11 +46,5 @@ export class OrganisationDetailComponent implements OnInit, OnDestroy {
         });
       console.log(this.summaries);
     });
-  }
-
-  public ngOnDestroy(): void {
-    this.isAlive = false;
-  }
-
-
+   */
 }

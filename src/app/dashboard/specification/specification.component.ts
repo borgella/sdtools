@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DocumentService } from 'app/document.service';
 import { DocumentsharedService } from 'app/dashboard/documentshared.service';
 import { IserviceDoc } from 'app/model/documentation/iservicedoc';
 
@@ -13,14 +12,14 @@ export class SpecificationComponent implements OnInit {
   private specifications: Array<any>;
   private mapProductionVersions: Array<any> = new Array();
 
-  constructor(private docService: DocumentService, private shared: DocumentsharedService) { }
+  constructor(private shared: DocumentsharedService) { }
 
   public ngOnInit(): void {
     if (this.shared.document) {
-      this.document = this.shared.document;
-      this.mapProductionVersions = this.document.serviceDoc.mapProductionVersions;
-      this.specifications = this.mapProductionVersions[0].specifications;
-      console.log(this.specifications);
+        this.document = this.shared.document;
+        this.mapProductionVersions = this.document.serviceDoc.mapProductionVersions;
+        this.specifications = this.mapProductionVersions[0].specifications;
+        console.log(this.specifications);
     }
   }
 

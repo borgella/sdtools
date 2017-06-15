@@ -9,16 +9,14 @@
       <a class="navbar-brand">Intact Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-
       <div class="navbar-form navbar-right">
         <div>
-          <input type="search" id="searching" class="form-control" placeholder="Search for a service version">
+          <input type="search" id="searching" class="form-control" placeholder="Search for a service version" [formControl]="searchControl">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>
       </div>
-
     </div>
   </div>
 </nav>

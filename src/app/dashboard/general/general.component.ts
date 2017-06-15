@@ -21,9 +21,8 @@ export class GeneralComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.shareDoc.getSummaries();
     this.summaries = this.shareDoc.summaries;
-    this.shareDoc.subjectSummaries.takeWhile(() => { // a refactorer pour utiliser flatMap
-        return this.isAlive;
-    }).subscribe((summaries: Array<ISummary>) => {
+    this.shareDoc.subjectSummaries.takeWhile(() => { return this.isAlive; })
+      .subscribe((summaries: Array<ISummary>) => {
         this.summaries = summaries;
       });
   }

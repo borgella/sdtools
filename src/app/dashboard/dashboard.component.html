@@ -1,16 +1,20 @@
-<div class="panel panel panel-default">
-    <div class="panel-heading">
-        <nav class=" navbar-default">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['']"> General </a></li>
-                    <li routerLinkActive="active"> <a [routerLink]="['endpoints']"> Endpoints </a></li>
-                    <li routerLinkActive="active"> <a [routerLink]="['specifications']"> Specifications </a></li>
-                </ul>
+<header>
+    <nav>
+        <div class="panel panel panel-default">
+            <div class="panel-heading">
+                <nav class=" navbar-default">
+                    <div class="container-fluid">
+                        <ul class="nav navbar-nav">
+                            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['']"> General </a></li>
+                            <li routerLinkActive="active"> <a [routerLink]="['endpoints']"> Endpoints </a></li>
+                            <li routerLinkActive="active"> <a [routerLink]="['specifications']"> Specifications </a></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </nav>
-    </div>
-</div>
+        </div>
+    </nav>
+</header>
 <div class="panel panel panel-default">
     <div class="panel-body">
         <router-outlet></router-outlet>
