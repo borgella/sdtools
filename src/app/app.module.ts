@@ -13,8 +13,7 @@ import { GeneralComponent } from './dashboard/general/general.component';
 import { EndpointsComponent } from './dashboard/endpoints/endpoints.component';
 import { SpecificationComponent } from './dashboard/specification/specification.component';
 import { AppRoutingModule } from 'app/app.routing';
-import { DocumentService } from 'app/document.service';
-import { CommunicationService } from 'app/communication.service';
+import { DocumentService } from 'app/services/document.service';
 import { DocumentsharedService } from 'app/dashboard/documentshared.service';
 import { OrganisationDetailComponent } from './dashboard/organisationDetail/organisation-detail.component';
 
@@ -38,7 +37,7 @@ import { OrganisationDetailComponent } from './dashboard/organisationDetail/orga
     HttpModule,
     AppRoutingModule
   ],
-  providers: [DocumentService, CommunicationService, DocumentsharedService],
+  providers: [DocumentService, DocumentsharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

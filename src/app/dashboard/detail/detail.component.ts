@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ISummary } from 'app/model/summary/isummary';
 import { ActivatedRoute, Params } from '@angular/router';
-import { DocumentService } from 'app/document.service';
-import { CommunicationService } from 'app/communication.service';
+import { DocumentService } from 'app/services/document.service';
 import { Summary } from 'app/model/summary/summary';
 import { IserviceDoc } from 'app/model/documentation/iservicedoc';
 import { DocumentsharedService } from 'app/dashboard/documentshared.service';

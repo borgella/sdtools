@@ -4,7 +4,7 @@ import { ISummary } from 'app/model/summary/isummary';
 import { Summary } from 'app/model/summary/summary';
 import { IserviceDoc } from 'app/model/documentation/iservicedoc';
 import { IOrganisation } from 'app/model/organisation/iorganisation';
-import { DocumentService } from 'app/document.service';
+import { DocumentService } from 'app/services/document.service';
 import { Observable } from 'rxjs/Observable';
 import { IServiceDocumentation } from 'app/model/service/iservicedoc';
 

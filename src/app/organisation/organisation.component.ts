@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { CommunicationService } from 'app/communication.service';
 import { ISummary } from 'app/model/summary/isummary';
 import { IOrganisation } from 'app/model/organisation/iorganisation';
 import { ActivatedRoute } from '@angular/router';

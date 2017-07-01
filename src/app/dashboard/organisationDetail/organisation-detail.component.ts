@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ISummary } from 'app/model/summary/isummary';
 import { ActivatedRoute, Params } from '@angular/router';
-import { DocumentService } from 'app/document.service';
+import { DocumentService } from 'app/services/document.service';
 import { IOrganisation } from 'app/model/organisation/iorganisation';
 import { DocumentsharedService } from 'app/dashboard/documentshared.service';
 import 'rxjs/add/operator/takeWhile';
